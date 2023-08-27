@@ -161,26 +161,16 @@ public class StudentImp {
     }
     // Methor tính tuổi các sinh viên
     public static void calListAge(){
-        for (Student student:listStudent) {
-            student.calAge();
-        }
+        listStudent.forEach(Student::calAge);
         System.out.println("Đã tính xong tuổi cho tất cả sinh viên");
     }
     // Methor tính điểm trung bình và xếp loại
     public static void calAvg_rank(){
-        for (Student student:listStudent) {
-            student.calAvgMark_rank();
-        }
+        listStudent.forEach(Student::calAvgMark_rank);
         System.out.println("Đã tính xong điểm trung bình và xếp loại cho tất cả các sinh viên");
     }
     // Methor sắp xếp sinh viên theo tuổi tăng dần với biểu thức Lambda
     public static void sortStudent(){
-//        Collections.sort(listStudent, new Comparator<Student>() {
-//            @Override
-//            public int compare(Student o1, Student o2) {
-//                return o1.getAge()-o2.getAge();
-//            }
-//        });
         listStudent.stream().sorted(Comparator.comparing(Student::getAge)).forEach(System.out::println);
         System.out.println("Đã xong sắp xếp sinh viên theo tuổi tăng dần ");
     }
